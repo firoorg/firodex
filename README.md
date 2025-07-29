@@ -1,6 +1,7 @@
 # FiroDEX
 
 FiroDEX is a fork of Komodo Wallet with Firo theming and focus. Any community member who hosts a FiroDEX interface can submit a PR to this readme to be added.
+It is highly recommended to use TOR or a VPN to connect to any hosted interface as the host can log the IPs of those using it.
 
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
