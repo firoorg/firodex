@@ -10,7 +10,7 @@ const double mainLayoutPadding = 29;
 const double appBarHeight = 70;
 const int scaleOnInfinitePrecision = 20; // ETH has 18 decimals, so use more
 const String allWalletsStorageKey = 'all-wallets';
-const String defaultDexCoin = 'KMD';
+const String defaultDexCoin = 'FIRO';
 const List<Locale> localeList = [Locale('en')];
 const String assetsPath = 'assets';
 const String coinsAssetsPath = 'packages/komodo_defi_framework/assets';
@@ -37,15 +37,17 @@ const Duration kPerformanceLogInterval = Duration(minutes: 1);
 // This information is here because it is not contextual and is branded.
 // Names of their own are not localized. Also, the application is initialized before
 // the localization package is initialized.
-String get appTitle => 'Komodo Wallet | Non-Custodial Multi-Coin Wallet & DEX';
-String get appShortTitle => 'Komodo Wallet';
+String get appTitle => 'FiroDEX Wallet | Non-Custodial Multi-Coin Wallet & DEX';
+String get appShortTitle => 'FiroDEX Wallet';
 
 Map<String, int> priorityCoinsAbbrMap = {
-  'KMD': 30,
+  'FIRO': 30,
+  'KMD': 20,
   'BTC-segwit': 20,
   'ETH': 20,
   'LTC-segwit': 20,
   'USDT-ERC20': 20,
+  'USDT-PLG20': 20,
   'BNB': 11,
   'ETC': 11,
   'DOGE': 11,
@@ -139,6 +141,8 @@ const List<String> appWalletOnlyAssetList = [
 /// This will not affect existing wallets.
 List<String> get enabledByDefaultCoins => [
       'BTC-segwit',
+      'FIRO',
+      'USDT-PLG20',
       'KMD',
       'LTC-segwit',
       'ETH',
