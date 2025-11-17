@@ -56,23 +56,53 @@ String get appTitle => 'FiroDEX Wallet | Non-Custodial Multi-Coin Wallet & DEX';
 String get appShortTitle => 'FiroDEX Wallet';
 
 Map<String, int> priorityCoinsAbbrMap = {
-  'FIRO': 30,
-  'KMD': 20,
-  'BTC-segwit': 20,
-  'ETH': 20,
-  'LTC-segwit': 20,
-  'USDT-ERC20': 20,
-  'USDT-PLG20': 20,
-  'BNB': 11,
-  'ETC': 11,
-  'DOGE': 11,
-  'DASH': 11,
-  'MATIC': 10,
-  'FTM': 10,
-  'ARB': 10,
-  'AVAX': 10,
-  'HT': 10,
-  'MOVR': 10,
+  // FIRO always has highest priority
+  'FIRO': 1000,
+
+  // Top 10 cryptocurrencies by market cap (as of current data)
+  // Rank 1: Bitcoin (~$2.21 trillion)
+  'BTC': 100,
+  'BTC-segwit': 100,
+  'KMD': 100,
+
+  // Rank 2: Ethereum (~$335 billion)
+  'ETH': 90,
+
+  // Rank 3: Tether (~$159 billion)
+  'USDT': 80,
+  'USDT-ERC20': 80,
+  'USDT-PLG20': 80,
+  'USDT-BEP20': 80,
+
+  // Rank 4: XRP (~$145 billion)
+  'XRP': 70,
+
+  // Rank 5: BNB (~$93 billion)
+  'BNB': 60,
+
+  // Rank 6: Solana (~$84 billion)
+  'SOL': 50,
+
+  // Rank 7: USD Coin (~$63 billion)
+  'USDC': 40,
+  'USDC-ERC20': 40,
+  'USDC-PLG20': 40,
+  'USDC-BEP20': 40,
+
+  // Rank 8: TRON (~$27.5 billion)
+  'TRX': 30,
+
+  // Rank 9: Dogecoin (~$27.1 billion)
+  'DOGE': 20,
+
+  // Rank 10: Cardano (~$22.3 billion)
+  'ADA': 10,
+
+  // Additional coins with higher than default priority
+  'LTC-segwit': 5, // Litecoin (popular)
+  'LTC': 5,
+
+  // All other coins get default priority (0)
 };
 
 /// Priority ticker symbols for unauthenticated users' asset list.
@@ -155,19 +185,18 @@ const List<String> appWalletOnlyAssetList = [
 /// This will not affect existing wallets.
 /// Reduced to only KMD to minimize initial connections and resource usage.
 List<String> get enabledByDefaultCoins => [
-      'BTC-segwit',
-      'FIRO',
-      'USDT-PLG20',
-      'KMD',
-      'LTC-segwit',
-      'ETH',
-      'MATIC',
-      'BNB',
-      'AVAX',
-      'FTM',
-      if (kDebugMode) 'DOC',
-      if (kDebugMode) 'MARTY',
-    ];
+  'FIRO', // FIRO default coin
+  'KMD',  // KMD default coin
+  'BTC-segwit', // Default Fiat Ramps coin
+  'USDT-PLG20',
+  'KMD',
+  'LTC-segwit',
+  'ETH',
+  'MATIC',
+  'BNB',
+  'AVAX',
+  'FTM'
+];
 
 const String logsDbName = 'logs';
 const String appFolder = 'KomodoWallet';
