@@ -10,7 +10,7 @@ const double mainLayoutPadding = 29;
 const double appBarHeight = 70;
 const int scaleOnInfinitePrecision = 20; // ETH has 18 decimals, so use more
 const String allWalletsStorageKey = 'all-wallets';
-const String defaultDexCoin = 'KMD';
+const String defaultDexCoin = 'FIRO';
 const String trezorWalletNamePrefix = 'my trezor';
 const List<Locale> localeList = [Locale('en')];
 const String assetsPath = 'assets';
@@ -52,17 +52,18 @@ const double kSimulatedBestOrdersFailureRate = 0.5; // 50%
 // This information is here because it is not contextual and is branded.
 // Names of their own are not localized. Also, the application is initialized before
 // the localization package is initialized.
-String get appTitle => 'Komodo Wallet | Non-Custodial Multi-Coin Wallet & DEX';
-String get appShortTitle => 'Komodo Wallet';
+String get appTitle => 'FiroDEX Wallet | Non-Custodial Multi-Coin Wallet & DEX';
+String get appShortTitle => 'FiroDEX Wallet';
 
 Map<String, int> priorityCoinsAbbrMap = {
-  // KMD always has highest priority (special case for Komodo ecosystem)
-  'KMD': 1000,
+  // FIRO always has highest priority
+  'FIRO': 1000,
 
   // Top 10 cryptocurrencies by market cap (as of current data)
   // Rank 1: Bitcoin (~$2.21 trillion)
   'BTC': 100,
   'BTC-segwit': 100,
+  'KMD': 100,
 
   // Rank 2: Ethereum (~$335 billion)
   'ETH': 90,
@@ -184,8 +185,17 @@ const List<String> appWalletOnlyAssetList = [
 /// This will not affect existing wallets.
 /// Reduced to only KMD to minimize initial connections and resource usage.
 List<String> get enabledByDefaultCoins => [
-  'KMD', // Komodo ecosystem coin
-  'BTC-segwit' // Default Fiat Ramps coin
+  'FIRO', // FIRO default coin
+  'KMD',  // KMD default coin
+  'BTC-segwit', // Default Fiat Ramps coin
+  'USDT-PLG20',
+  'KMD',
+  'LTC-segwit',
+  'ETH',
+  'MATIC',
+  'BNB',
+  'AVAX',
+  'FTM'
 ];
 
 const String logsDbName = 'logs';
